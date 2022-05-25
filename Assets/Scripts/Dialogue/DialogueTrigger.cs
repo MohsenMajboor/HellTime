@@ -6,8 +6,13 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dlg;
 
-    public void TriggerDialouge()
+    public void NextDialogue()
     {
         FindObjectOfType<DialogueManager>().DisplayNextScentence(dlg);
+    }
+
+    public void RestartDialogue()
+    {
+        FindObjectOfType<DialogueManager>().RestartDialogue(dlg);
     }
 }
