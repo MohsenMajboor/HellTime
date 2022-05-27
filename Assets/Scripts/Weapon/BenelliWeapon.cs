@@ -21,11 +21,6 @@ public class BenelliWeapon : Weapon
         audioSource = GetComponent<AudioSource>();
     }
 
-    public float GetAmmo()
-    {
-        throw new System.NotImplementedException();
-    }
-
     ////state
     //int _currentAmmo;
     //float _ammoFontSize;
@@ -97,7 +92,7 @@ public class BenelliWeapon : Weapon
     //    UpdateAmmoText();
     //}
 
-    public void Use()
+    public override void Use()
     {
         //if(GetAmmo() > 0f)
         {

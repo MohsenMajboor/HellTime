@@ -21,11 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 _velocity;
     private CharacterController _characterController;
 
-
-    //events
-    public delegate void PlayerInAirEventHandler();
-    public event PlayerInAirEventHandler OnPlayerInAir;
-
     // Start is called before the first frame update
     private void Awake()
     {

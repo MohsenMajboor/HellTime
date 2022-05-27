@@ -1,14 +1,8 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IWeapon
+public abstract class Weapon : MonoBehaviour
 {
-    public float GetAmmo()
+    public virtual void Use()
     {
-        throw new System.NotImplementedException();
-    }
-
-    public void Use()
-    {
-        throw new System.NotImplementedException();
     }
 }

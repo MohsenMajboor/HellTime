@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     bool isTyping;
 
-    AudioSource audio;
+    AudioSource audioSource;
 
 
     [SerializeField] AudioClip dialogueSound;
@@ -30,9 +30,9 @@ public class DialogueManager : MonoBehaviour
     {
         scentences = new Queue<string>();
         nextCharDisplayTime = Time.time + timeBtChars;
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         timeBtCharsUsed = timeBtChars;
-            audio.clip = dialogueSound;
+            audioSource.clip = dialogueSound;
     }
 
      void Update()
@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBtCharsUsed);
             text.text+=chr;
-            audio.Play();
+            audioSource.Play();
         }
     }
 }
