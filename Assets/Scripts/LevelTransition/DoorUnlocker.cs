@@ -70,11 +70,16 @@ public class DoorUnlocker : MonoBehaviour
         SceneManager.LoadScene(randomSceneIndex);
     }
 
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.CompareTag("Player") && _enemyCount <= 0)
         {
-            LoadRandomScene();
+            LoadNextScene();
         }    
     }
 }

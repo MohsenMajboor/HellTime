@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponUser : MonoBehaviour
 {
     [SerializeField] BenelliWeapon _currentWeapon = null;
-    [SerializeField] float shootInterval = 0.5f;
+    [SerializeField] float      shootInterval = 0.5f;
 
 
     float nextShootTime;

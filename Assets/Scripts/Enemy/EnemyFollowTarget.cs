@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,10 @@ public class EnemyFollowTarget : MonoBehaviour
 {
 
     //parameters
-    [SerializeField] private GameObject _destinationObject;
+    [SerializeField] private GameObject destinationObject;
 
     //cache
-    NavMeshAgent _navMeshAgent;
-
+    NavMeshAgent navMeshAgent;
 
     //events
     public delegate void EnemyAtTargetEventHandler();
@@ -20,23 +20,35 @@ public class EnemyFollowTarget : MonoBehaviour
     public delegate void EnemyAwayFromTargetEventHandler();
     public event EnemyAwayFromTargetEventHandler OnEnemyAwayFromTarget;
 
+    public event Action OnEnemyMoving;
+    public event Action OnEnemyStopped;
+
     private void Awake() 
     {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
     
     // Start is called before the first frame update
     private void Update()
     {
-        _navMeshAgent.SetDestination(_destinationObject.transform.position);
+        navMeshAgent.SetDestination(destinationObject.transform.position);
 
-        if (Vector3.Distance(transform.position, _destinationObject.transform.position) <= _navMeshAgent.stoppingDistance && OnEnemyAtTarget != null)
+        if (Vector3.Distance(transform.position, destinationObject.transform.position) <= navMeshAgent.stoppingDistance)
         {
-            OnEnemyAtTarget();
+            OnEnemyAtTarget?.Invoke();
         }
-        else if(Vector3.Distance(transform.position, _destinationObject.transform.position) > _navMeshAgent.stoppingDistance && OnEnemyAwayFromTarget != null)
+        else if(Vector3.Distance(transform.position, destinationObject.transform.position) > navMeshAgent.stoppingDistance)
         {
-            OnEnemyAwayFromTarget();            
+            OnEnemyAwayFromTarget?.Invoke();            
+        }
+
+        if(Vector3.Distance(destinationObject.transform.position, transform.position) > navMeshAgent.stoppingDistance * 1.1f)
+        {
+            OnEnemyMoving?.Invoke();
+        }
+        else
+        {
+            OnEnemyStopped?.Invoke();
         }
     }
 }
