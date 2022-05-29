@@ -5,19 +5,19 @@ using UnityEngine;
 public class EnemyDamagePlayer : MonoBehaviour
 {
     //parameters
-    [SerializeField] private float _damageAmount;
+    //[SerializeField] private float _damageAmount;
 
     //cache
-    private PlayerHealth _playerHealth;
+    //private PlayerHealth _playerHealth;
 
     private void Start()
     {
-        _playerHealth = FindObjectOfType<PlayerHealth>();
+        //_playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     public void DamagePlayer()
     {
-        _playerHealth.DecreaseHealth(_damageAmount);
+        //_playerHealth.DecreaseHealth(_damageAmount);
     }
 }
 
