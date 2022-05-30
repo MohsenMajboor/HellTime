@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyDestroyer : MonoBehaviour
 {
 
-    public event Action onAllEnemiesDead;
+    public event Action onMostEnemiesDead;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,9 +37,9 @@ public class EnemyDestroyer : MonoBehaviour
 
     private void Update()
     {
-        if (FindObjectsOfType<EnemyRunFromPlayer>().Length <= 0)
+        if (FindObjectsOfType<EnemyRunFromPlayer>().Length <= 5)
         {
-            onAllEnemiesDead?.Invoke();
+            onMostEnemiesDead?.Invoke();
         }
     }
 }

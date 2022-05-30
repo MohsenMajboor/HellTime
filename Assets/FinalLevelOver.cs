@@ -18,12 +18,34 @@ public class FinalLevelOver : MonoBehaviour
 
     private void OnEnable()
     {
-        enemyDestroyer.onAllEnemiesDead += ReplaceAllMaterials;
+        enemyDestroyer.onMostEnemiesDead += ReplaceAllMaterials;
+        enemyDestroyer.onMostEnemiesDead += RemovePlayerControls;
     }
     private void OnDisable()
     {
-        enemyDestroyer.onAllEnemiesDead -= ReplaceAllMaterials;
+        enemyDestroyer.onMostEnemiesDead -= ReplaceAllMaterials;
+        enemyDestroyer.onMostEnemiesDead -= RemovePlayerControls;
     }
+
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("Fire1"))
+        {
+            ReplaceAllMaterials();
+        }
+    }
+
+
+    void RemovePlayerControls()
+    {
+        gun.enabled = false;
+        FindObjectOfType<MouseLook>().enabled = false;
+        FindObjectOfType<PlayerMovement>().enabled = false;
+        FindObjectOfType<WeaponUser>().enabled = false;
+        crosshair.enabled = false;
+    }
+
 
     void ReplaceAllMaterials()
     {

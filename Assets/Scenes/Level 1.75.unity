@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b48eeca7a78d7e344a6a7ea8a3ab1e56, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 8d9b0fb5e4494d04c993e2199c07f6a2, type: 2}
 --- !u!1001 &2076850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4046,7 +4046,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36160
+  m_Name: pb_Mesh31292
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6436,7 +6436,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-23678
+  m_Name: pb_Mesh-5196
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6669,7 +6669,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 282e8c1176e6d3540b2b601b8c9ff38b,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282e8c1176e6d3540b2b601b8c9ff38b, type: 3}

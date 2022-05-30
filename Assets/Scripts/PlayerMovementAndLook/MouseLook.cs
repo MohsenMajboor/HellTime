@@ -7,6 +7,7 @@ public class MouseLook : MonoBehaviour
     //parameters
     [SerializeField] private float _mouseSensitivity;
     [SerializeField] private Transform _playerParent;
+    [SerializeField] bool upDownLook = false;
 
     //state
     private float _xRotation;
@@ -32,7 +33,10 @@ public class MouseLook : MonoBehaviour
         _xRotation -= mouseY;
         _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+        if(upDownLook)
+        {
+            transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);
+        }
     }
 
 
